@@ -1,5 +1,4 @@
-// Array Type Annotations
-// Arrays:
+// 1. Array Type Annotations
 let bestNumbers: number[] = [7, 77, 4];
 let bestLunches: string[] = ["chicken soup", "non-chicken soup"];
 let bestBreakfasts: string[] = [
@@ -10,8 +9,7 @@ let bestBreakfasts: string[] = [
 ];
 let bestBooleans: boolean[] = [true, false];
 
-//Multi-dimensional Arrays
-// Arrays:
+//2. Arrays:
 let bestNumbers2: number[] = [7, 77, 4];
 let bestLunches2: string[] = ["chicken soup", "non-chicken soup"];
 let bestBreakfasts2: string[] = [
@@ -22,7 +20,7 @@ let bestBreakfasts2: string[] = [
 ];
 let bestBooleans2: boolean[] = [true, false];
 
-// Multidimensional Arrays:
+//3. Multidimensional Arrays:
 let bestMealPlan: string[][] = [
   bestLunches,
   bestBreakfasts,
@@ -34,7 +32,7 @@ let numbersMulti: number[][][] = [
   [[7], bestNumbers],
 ];
 
-//Tuples - when an array is typed with elements of specific types
+//4. Tuples - when an array is typed with elements of specific types
 let favoriteCoordinates: [number, number, string, number, number, string] = [
   40,
   43.2,
@@ -47,11 +45,11 @@ let favoriteCoordinates: [number, number, string, number, number, string] = [
 favoriteCoordinates = [17, 45, "N", 142, 30, "E"];
 favoriteCoordinates[6] = -6.825; //error tuple has no element at index '6'.
 
-//Array Type Inference
+//5. Array Type Inference
 let tupleOfExamAnswers: [boolean, boolean, boolean] = [true, false, false];
 tupleOfExamAnswers[20] = true; // Type error! The tuple only has 3 elements.
 
-//Rest Parameters
+//6. Rest Parameters
 function addPower(p: number, ...numsToAdd: number[]): number {
   let answer = 0;
   for (let i = 0; i < numsToAdd.length; i++) {
@@ -62,7 +60,7 @@ function addPower(p: number, ...numsToAdd: number[]): number {
 
 addPower("a string", 4, 5, 6);
 
-//Spread Syntax
+//7. Spread Syntax
 function performDanceMove(
   moveName: string,
   moveReps: number,

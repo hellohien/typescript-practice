@@ -1,4 +1,4 @@
-//Explicit Return Types
+//1. Explicit Return Types
 import {
   getUserChoice,
   f1,
@@ -50,7 +50,7 @@ console.log(returnFruit());
 
 //The problematic function is f9()
 
-//Void Return Type
+//2. Void Return Type
 function makeFruitSalad(fruit1: string, fruit2: string): void {
   let salad = fruit1 + fruit2 + fruit2 + fruit1 + fruit2 + fruit1 + fruit1;
   console.log(salad);
@@ -58,7 +58,7 @@ function makeFruitSalad(fruit1: string, fruit2: string): void {
 
 makeFruitSalad("banana", "pineapple");
 
-//Documenting Functions
+//3. Documenting Functions
 /**
  * prints out a fruit salad
  *
@@ -85,7 +85,7 @@ function proclaim(status = "not ready...", repeat = 1) {
   }
 }
 
-//Review
+//4. Review
 function useMagnifyingGlass(): string {
   return "I will use my magnifying glass.";
 }

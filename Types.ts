@@ -1,4 +1,4 @@
-//Variable Type Annotation
+//1. Variable Type Annotation
 let phoneNumber: string;
 
 if (Math.random() > 0.5) {
