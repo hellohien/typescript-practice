@@ -1,4 +1,4 @@
-# TypeScript Practice Projects
+# TypeScript Practice
 
 ## Overview
 
