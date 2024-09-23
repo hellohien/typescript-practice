@@ -121,9 +121,10 @@ function wrongAdd(a, b) {
 }
 
 // Add your function type below:
+type OperatorFunction = (a: number, b: number) => number;
 
 // Math Tutor Function That Accepts a Callback
-function mathTutor(operationCallback) {
+function mathTutor(operationCallback: OperatorFunction) {
   console.log("Let's learn how to", operationCallback.name, "!");
   let value25 = operationCallback(2, 5);
   console.log(
@@ -144,4 +145,4 @@ function mathTutor(operationCallback) {
   console.log("Now fill out this worksheet.");
 }
 
-// Call your functions below:
+mathTutor(wrongAdd); //error: Argument of type '(a: any, b: any) => string' is not assignable to parameter of type 'OperatorFunction'. Type 'string' is not assignable to type 'number'.
