@@ -85,3 +85,20 @@ const newEvent = {
 const friendName = getFriendNameFromEvent(newEvent);
 
 console.log(`You have an update from ${friendName}.`);
+
+//6. Unions with Literal Types
+type Status = "idle" | "downloading" | "complete";
+
+function downloadStatus(status: Status) {
+  if (status === "idle") {
+    console.log("Download");
+  }
+  if (status === "downloading") {
+    console.log("Downloading...");
+  }
+  if (status === "complete") {
+    console.log("Your download is complete!");
+  }
+}
+
+downloadStatus("idle");
