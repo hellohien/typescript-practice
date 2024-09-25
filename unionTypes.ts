@@ -61,3 +61,27 @@ const result = formatListings([
 ]);
 
 console.log(result);
+
+//5. Common Key Value Pairs
+//Add a type to the getFriendNameFromEvent()’s event parameter. Use a union to allow event to be a Like or a Share, then save your code.
+type Like = {
+  username: string;
+  displayName: string;
+};
+
+type Share = {
+  username: string;
+};
+
+function getFriendNameFromEvent(event: Like | Share) {
+  return event.displayName || event.username;
+}
+
+const newEvent = {
+  username: "vkrauss",
+  displayName: "Veronica Krauss",
+};
+
+const friendName = getFriendNameFromEvent(newEvent);
+
+console.log(`You have an update from ${friendName}.`);
