@@ -115,3 +115,36 @@ function formatStatistic(stat: string | number) {
 
 console.log(formatStatistic("Win"));
 console.log(formatStatistic(0.364));
+
+//8. Using 'in' with Type Guards
+// write a type guard using `in` inside the move() and checks if 'run' and 'swim' exists on pet
+type Cat = {
+  name: string;
+  run: () => string;
+};
+
+type Fish = {
+  name: string;
+  swim: () => string;
+};
+
+const siameseCat = {
+  name: "Proxie",
+  run: () => "pitter pat",
+};
+
+const bettaFish = {
+  name: "Neptune",
+  swim: () => "bubble blub",
+};
+
+function move(pet: Cat | Fish) {
+  if ("run" in pet) {
+    return pet.run();
+  }
+  if ("swim" in pet) {
+    return pet.swim();
+  }
+}
+
+console.log(move(siameseCat));
