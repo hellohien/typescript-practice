@@ -1,4 +1,50 @@
-//1. Narrowing with 'else'
+//1. Type guards
+function formatStatistic(stat: string | number) {
+  if (typeof stat === "number") {
+    return stat.toFixed(2);
+  }
+  if (typeof stat === "string") {
+    return stat.toUpperCase();
+  }
+}
+
+console.log(formatStatistic("Win"));
+console.log(formatStatistic(0.364));
+
+//2. Using 'in' with Type Guards
+// write a type guard using `in` inside the move() and checks if 'run' and 'swim' exists on pet
+type Cat = {
+  name: string;
+  run: () => string;
+};
+
+type Fish = {
+  name: string;
+  swim: () => string;
+};
+
+const siameseCat = {
+  name: "Proxie",
+  run: () => "pitter pat",
+};
+
+const bettaFish = {
+  name: "Neptune",
+  swim: () => "bubble blub",
+};
+
+function move(pet: Cat | Fish) {
+  if ("run" in pet) {
+    return pet.run();
+  }
+  if ("swim" in pet) {
+    return pet.swim();
+  }
+}
+
+console.log(move(siameseCat));
+
+//3. Narrowing with 'else'
 type Pasta = {
   menuName: string;
   boil: () => string;
@@ -29,7 +75,7 @@ function prepareEntree(entree: Pasta | Meat) {
 
 console.log(prepareEntree(fettuccine));
 
-//2. Narrowing After a Type Guard
+//4. Narrowing After a Type Guard
 type Metal = {
   magnetize: () => string;
 };
@@ -47,7 +93,6 @@ const bottle = {
 };
 
 function recycle(trash: Metal | Glass) {
-  // Add your code below:
   if ("magnetize" in trash) {
     return trash.magnetize();
   }
