@@ -40,7 +40,7 @@ Desktop.showPreview("lesson-notes.txt");
 
 //3. Deep Types
 // Inside the Directory interface, add a config type member that matches the config property of DesktopDirectory. You should write a type that has a nested default object
-interface Directory {
+interface Directory2 {
   addFile: (name: string) => void;
   config: {
     default: {
@@ -50,7 +50,7 @@ interface Directory {
   };
 }
 
-class DesktopDirectory implements Directory {
+class DesktopDirectory2 implements Directory {
   config = {
     default: {
       encoding: "utf-8",
@@ -67,6 +67,42 @@ class DesktopDirectory implements Directory {
   }
 }
 
-const Desktop = new DesktopDirectory();
+const Desktop2 = new DesktopDirectory2();
 
-console.log(Desktop.config);
+console.log(Desktop2.config);
+
+// 4. Composed Types
+interface Directory {
+  addFile: (name: string) => void;
+  config: Config;
+}
+
+interface DefaultConfig {
+  encoding: string;
+  permissions: string;
+}
+
+interface Config {
+  default: DefaultConfig;
+}
+
+class DesktopDirectory3 implements Directory {
+  config = {
+    default: {
+      encoding: "utf-8",
+      permissions: "drw-rw-rw-",
+    },
+  };
+
+  addFile(name: string) {
+    console.log(`Adding file: ${name}`);
+  }
+
+  showPreview(name: string) {
+    console.log(`Opening preview of file: ${name}`);
+  }
+}
+
+const Desktop3 = new DesktopDirectory3();
+
+console.log(Desktop3.config);
