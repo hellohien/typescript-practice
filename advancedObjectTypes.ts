@@ -142,3 +142,31 @@ async function getBudget() {
 }
 
 getBudget();
+
+//7.Optional Type Members
+// Declare an interface at the top of the file named UserNameOptions
+//Apply the UserNameOptions type to the getUserName() function’s options parameter
+interface UserNameOptions {
+  firstName?: string;
+  lastName?: string;
+  username: string;
+}
+
+function getUserName(options: UserNameOptions) {
+  if (options.firstName && options.lastName) {
+    return console.log(`${options.firstName} ${options.lastName}`);
+  }
+
+  return console.log(options.username);
+}
+
+getUserName({
+  firstName: "Mr.",
+  lastName: "Oshiro",
+  username: "hotelowner304",
+});
+
+getUserName({
+  firstName: "Madeline",
+  username: "mountainClimber",
+});
