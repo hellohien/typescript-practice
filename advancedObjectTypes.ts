@@ -37,3 +37,36 @@ const Desktop = new DesktopDirectory();
 
 Desktop.addFile("lesson-notes.txt");
 Desktop.showPreview("lesson-notes.txt");
+
+//3. Deep Types
+// Inside the Directory interface, add a config type member that matches the config property of DesktopDirectory. You should write a type that has a nested default object
+interface Directory {
+  addFile: (name: string) => void;
+  config: {
+    default: {
+      encoding: string;
+      permissions: string;
+    };
+  };
+}
+
+class DesktopDirectory implements Directory {
+  config = {
+    default: {
+      encoding: "utf-8",
+      permissions: "drw-rw-rw-",
+    },
+  };
+
+  addFile(name: string) {
+    console.log(`Adding file: ${name}`);
+  }
+
+  showPreview(name: string) {
+    console.log(`Opening preview of file: ${name}`);
+  }
+}
+
+const Desktop = new DesktopDirectory();
+
+console.log(Desktop.config);
