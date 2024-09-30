@@ -106,3 +106,24 @@ class DesktopDirectory3 implements Directory {
 const Desktop3 = new DesktopDirectory3();
 
 console.log(Desktop3.config);
+
+//5. Extending Interfaces
+// Declare an interface named Human, and give it two type members: name typed as a string and hobbies typed as string[]
+// Add the members from Human to the Developer interface using the extends keyword
+interface Developer extends Human {
+  code: () => void;
+}
+
+// Add your interface here
+interface Human {
+  name: string;
+  hobbies: string[];
+}
+
+const me: Developer = {
+  code: () => console.log("Headphones on. Coffee brewed. Editor open."),
+  name: "Corrina",
+  hobbies: ["Building rockets"],
+};
+
+me.code();
